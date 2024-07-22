@@ -6,9 +6,9 @@ phases:
       - echo Connecting to ECR
       - aws --version
       # Change your configuration here
-      - aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 278239571658.dkr.ecr.us-east-1.amazonaws.com
+      - aws ecr get-login-password --region ap-southeast-1 | docker login --username AWS --password-stdin 278239571658.dkr.ecr.ap-southeast-1.amazonaws.com
       # Change your configuration here
-      - REPOSITORY_URI=278239571658.dkr.ecr.us-east-1.amazonaws.com/fastapi-app
+      - REPOSITORY_URI=278239571658.dkr.ecr.ap-southeast-1.amazonaws.com/fastapi-app
       - COMMIT_HASH=$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | cut -c 1-7)
       - IMAGE_TAG=build-$(echo $CODEBUILD_BUILD_ID | awk -F":" '{print $2}')
   build:
